@@ -1,0 +1,7 @@
+npm run dev
+
+npm run build
+
+git add .
+git commit -m " "
+git push -u origin V2
