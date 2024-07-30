@@ -1,0 +1,26 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+}
+
+.social-links {
+  float: right;
+}
+.social-links a {
+  margin-left: 1rem;
+}
+
+ion-icon {
+  color: white;
+}
+
+ion-icon:hover {
+  color: #ff204e;
+}
+
+.copyright {
+  float: left;
+  color: white;
+}

@@ -23,7 +23,7 @@ function Preloader() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="preloader">
       <span ref={el} />
     </div>
   );
