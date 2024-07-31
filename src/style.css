@@ -12,3 +12,62 @@ body {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
+
+/* NAVBAR */
+nav {
+  padding: 1rem;
+}
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.nav-links li {
+  float: right;
+}
+
+.nav-links a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #ff204e;
+}
+
+.nav-links .active {
+  color: #ff204e;
+}
+
+/* FOOTER */
+Footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+}
+
+.social-links {
+  float: right;
+}
+.social-links a {
+  margin-left: 1rem;
+}
+
+ion-icon {
+  color: white;
+}
+
+ion-icon:hover {
+  color: #ff204e;
+}
+
+.copyright {
+  float: left;
+  color: white;
+}

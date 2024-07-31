@@ -1,50 +1,62 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+// import React from 'react';
 import './style.css';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-// } from "react-router-dom";
-import Footer from './components/Footer';
-import Preloader from './components/Preloader';
-import Navbar from './components/Navbar';
-// import Home from './pages/Home';
-// import Works from './pages/Works';
-// import Blogs from './pages/Blog';
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import Home from "./pages/Home";
+import Blogs from "./pages/Blogs";
+import Contact from "./pages/Contact";
+import NoPage from "./pages/NoPage";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Works from "./pages/Works";
 
-function App() {
-  const [screenLoading, setScreenLoading] = useState(false);
-
-  useEffect(() => {
-    setScreenLoading(true);
-    setTimeout(() => {
-      setScreenLoading(false);
-    }, 1300);
-  }, []);
-
+export default function App() {
   return (
-    <>
-      {screenLoading ? (
-        <Preloader />
-      ) : (
-      <>
-        <Navbar></Navbar>
-        <Footer></Footer>
-      </>
-      )}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="works" element={<Works />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App;
+function Layout () {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </>
+  )
+}
 
-{/* <Router>
-<Navbar />
-<Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/works" element={<Works />} />
-    <Route path="/blogs" element={<Blogs />} />
-</Routes>
-<Footer />
-</Router> */}
+//OLD APP
+// import { useState, useEffect } from 'react';
+// function App() {
+//   const [screenLoading, setScreenLoading] = useState(false);
+
+//   useEffect(() => {
+//     setScreenLoading(true);
+//     setTimeout(() => {
+//       setScreenLoading(false);
+//     }, 1300);
+//   }, []);
+
+//   return (
+//     <>
+//       {screenLoading ? (
+//         <Preloader />
+//       ) : (
+//       <>
+//         <Navbar></Navbar>
+//         <Footer></Footer>
+//       </>
+//       )}
+//     </>
+//   );
+// }

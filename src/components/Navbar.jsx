@@ -1,22 +1,22 @@
 import React from 'react';
-import './Navbar.css';
+import { Link  } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="navbar">
+    <nav>
       <ul className='nav-links'>
         <li>
-          <a href="/contact">Contacts</a>
+          <Link to="/contact">Contact</Link>
         </li>
         <li>
-          <a href="/blog">Blog</a>
+          <Link to="/blogs">Blogs</Link>
         </li>
         <li>
-          <a className='active' href="/works">Works</a>
+          <Link to="/works">Works</Link>
         </li>
       </ul>
     </nav>
-  );
+  )
 }
 
 export default Navbar;
