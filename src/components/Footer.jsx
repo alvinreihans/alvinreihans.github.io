@@ -1,9 +1,8 @@
 import React from 'react';
-import './Footer.css';
 
 function Footer() {
   return (
-    <div className="footer">
+    <footer>
       <div className='copyright'>© 2024 Alvinreihans. All rights reserved.</div>
       <div className='social-links'>
         <a href='https://github.com/alvinreihans' target='_blank'>
@@ -16,7 +15,7 @@ function Footer() {
           <ion-icon name="mail-outline"></ion-icon>
         </a>
       </div>
-    </div>
+    </footer>
   );
 }
 
