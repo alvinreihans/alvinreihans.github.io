@@ -1,13 +1,14 @@
 // import React from 'react';
-import './style.css';
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { useState } from 'react';
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
 import Works from "./pages/Works";
+import Preloader from "./components/Preloader";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   return (
@@ -26,13 +27,34 @@ export default function App() {
 }
 
 function Layout () {
+  const [screenLoading, setScreenLoading] = useState(true);
+  const NavClickHandler = () => {
+    setScreenLoading(true);
+    setTimeout(() => {
+      setScreenLoading(false);
+    }, 700);
+  };
+
   return (
     <>
-      <Navbar />
-      <Outlet />
-      <Footer />
+    {screenLoading ? (
+      <Preloader />) : (
+      <>
+        <Navbar handleNavClick={NavClickHandler}/>
+        <Outlet />
+        <Footer />
+      </>
+      )}
     </>
   )
+  
+  // return (
+  //   <>
+  //     <Navbar />
+  //     <Outlet />
+  //     <Footer />
+  //   </>
+  // )
 }
 
 //OLD APP

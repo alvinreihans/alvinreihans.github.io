@@ -9,7 +9,7 @@ function Preloader() {
   React.useEffect(() => {
     const typed = new Typed(el.current, {
       strings: ['loading', 'loading.', 'loading..', 'loading...', 'loading....'],
-      typeSpeed: 50,
+      typeSpeed: 30,
       backSpeed: 10,
       backDelay: 0,
       loop: true,

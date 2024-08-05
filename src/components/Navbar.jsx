@@ -1,18 +1,17 @@
-import React from 'react';
-import { Link  } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-function Navbar() {
+function Navbar({handleNavClick}) {
   return (
     <nav>
       <ul className='nav-links'>
         <li>
-          <Link to="/contact">Contact</Link>
+          <NavLink onClick={handleNavClick} to="/contact">Contact</NavLink>
         </li>
         <li>
-          <Link to="/blogs">Blogs</Link>
+          <NavLink onClick={handleNavClick} to="/blogs">Blogs</NavLink>
         </li>
         <li>
-          <Link to="/works">Works</Link>
+          <NavLink onClick={handleNavClick} to="/works">Works</NavLink>
         </li>
       </ul>
     </nav>
