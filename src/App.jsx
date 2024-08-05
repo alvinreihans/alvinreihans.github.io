@@ -1,33 +1,48 @@
-// import React from 'react';
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 import { useState } from 'react';
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
+import Works from "./pages/Works";
 import NoPage from "./pages/NoPage";
 import Footer from "./components/Footer";
-import Works from "./pages/Works";
 import Preloader from "./components/Preloader";
 import Navbar from "./components/Navbar";
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: 'blogs',
+        element: <Blogs />,
+      },
+      {
+        path: 'contact',
+        element: <Contact />,
+      },
+      {
+        path: 'works',
+        element: <Works />,
+      },
+      {
+        path: '*',
+        element: <NoPage />,
+      }
+    ]
+  }
+])
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="works" element={<Works />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }
 
 function Layout () {
-  const [screenLoading, setScreenLoading] = useState(true);
+  const [screenLoading, setScreenLoading] = useState(false);
   const NavClickHandler = () => {
     setScreenLoading(true);
     setTimeout(() => {
