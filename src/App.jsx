@@ -42,7 +42,12 @@ export default function App() {
 }
 
 function Layout () {
-  const [screenLoading, setScreenLoading] = useState(false);
+  const [screenLoading, setScreenLoading] = useState(true);
+  
+  setTimeout(() => {
+    setScreenLoading(false);
+  }, 700);
+
   const NavClickHandler = () => {
     setScreenLoading(true);
     setTimeout(() => {
