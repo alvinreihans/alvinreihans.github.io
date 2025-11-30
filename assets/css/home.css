@@ -1,0 +1,127 @@
+/* =================================
+   HOME PAGE — HERO SECTION
+================================= */
+
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 0;
+}
+
+.home-left {
+  flex: 1;
+}
+
+.intro {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.home-left .title {
+  font-size: 40px;
+  font-weight: 800;
+  margin: 15px 0;
+  color: var(--dark);
+}
+
+.home-left .description {
+  width: 80%;
+  font-size: 16px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.btn-main {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 25px;
+  padding: 13px 25px;
+  background: var(--dark);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 16px;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.btn-main:hover {
+  background: #fff;
+  color: var(--dark);
+}
+
+.btn-main span {
+  width: 24px;
+  height: 24px;
+  background: #35343d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.hero-img {
+  width: 420px;
+  max-width: 100%;
+}
+
+/* =================================
+   EXPERIENCE SECTION
+================================= */
+
+.experience-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding-bottom: 60px;
+}
+
+.exp-box {
+  width: 22%;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  text-align: center;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.exp-box h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.exp-box p {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 900px) {
+  .home-hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .home-left .description {
+    width: 100%;
+  }
+
+  .experience-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .exp-box {
+    width: 100%;
+  }
+
+  .hero-img {
+    width: 260px;
+  }
+}
