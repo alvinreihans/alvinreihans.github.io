@@ -1,3 +1,43 @@
 <footer class="footer">
-  <p>© 2025 My Portfolio</p>
+  <div class="container footer-wrapper">
+    <!-- LEFT: BRIEF INFO -->
+    <div class="footer-info">
+      <h2>Let's Talk</h2>
+      <p>
+        If you have a project or just want to say hello, feel free to reach out
+        ✨
+      </p>
+    </div>
+
+    <!-- RIGHT: CONTACT FORM -->
+    <form
+      class="footer-form"
+      action="https://formsubmit.co/alvinreihans@gmail.com"
+      method="POST">
+      <!-- Redirect after submit -->
+      <input
+        type="hidden"
+        name="_next"
+        value="https://yourdomain.com/thanks.html" />
+
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Your name" required />
+      </div>
+
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Your email" required />
+      </div>
+
+      <div class="form-group">
+        <textarea name="message" placeholder="Your message" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+    <p>© 2025 alvinreihans. All rights reserved.</p>
+  </div>
 </footer>

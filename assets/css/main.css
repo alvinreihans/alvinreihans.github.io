@@ -17,13 +17,34 @@ body {
   height: 100%;
 }
 
-body {
-  min-height: 100vh;
-  background: url(../images/bg.jpg);
-  background-size: cover;
+html {
+  scroll-behavior: smooth;
 }
 
-/* Warna global */
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Fixed background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(5px);
+  z-index: -1;
+}
+
+/* Colors */
 :root {
   --dark: #292423;
   --light: #ffffff;
@@ -31,27 +52,27 @@ body {
   --primary: #292423;
 }
 
-/* Link default */
+/* Links */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Container (sama seperti template sebelumnya) */
+/* Container */
 .container {
   width: 100%;
-  max-width: min(1200px, 100%);
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: auto;
   padding: 0 clamp(16px, 4vw, 48px);
 }
 
-/* Global sections */
+/* Sections */
 section {
   width: 100%;
   padding: 80px 0;
 }
 
-/* page transition */
+/* Page transition */
 #content {
   opacity: 1;
   transition: opacity 0.2s ease;
@@ -65,12 +86,27 @@ section {
   opacity: 1;
 }
 
-.not-found {
-  text-align: center;
-  padding: 60px 0;
+/* ===============================
+   RESPONSIVE CONTAINER
+================================= */
+
+/* Large Desktop */
+@media (min-width: 1921px) {
+  .container {
+    max-width: 1400px;
+  }
 }
 
-.not-found h1 {
-  font-size: 60px;
-  font-weight: 800;
+/* Laptop */
+@media (max-width: 1366px) {
+  .container {
+    padding: 0 5vw;
+  }
+}
+
+/* Mobile */
+@media (max-width: 430px) {
+  .container {
+    padding: 0 20px;
+  }
 }

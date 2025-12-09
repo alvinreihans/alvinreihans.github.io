@@ -1,5 +1,5 @@
 /* ===============================
-NAVBAR — GLOBAL
+NAVBAR — BASE STYLES
 ================================= */
 .navbar {
   width: 100%;
@@ -7,16 +7,19 @@ NAVBAR — GLOBAL
   position: relative;
   z-index: 10;
 }
+
 .navbar .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .navbar .logo {
   font-size: 22px;
   font-weight: 800;
   color: var(--dark);
 }
+
 .navbar.sticky {
   position: fixed;
   top: 0;
@@ -27,14 +30,13 @@ NAVBAR — GLOBAL
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* ===============================
-NAV LINKS (DESKTOP)
-================================= */
+/* Nav desktop */
 .navigation {
   display: flex;
   gap: 30px;
   list-style: none;
 }
+
 .navigation li {
   cursor: pointer;
   font-size: 16px;
@@ -45,10 +47,13 @@ NAV LINKS (DESKTOP)
   position: relative;
   display: inline-block;
 }
+
 .navigation li span {
   position: relative;
   display: inline-block;
 }
+
+/* underline */
 .navigation li span::after {
   content: '';
   position: absolute;
@@ -59,40 +64,41 @@ NAV LINKS (DESKTOP)
   background: var(--dark);
   transition: width 0.3s ease;
 }
+
 .navigation li:hover span::after,
 .navigation li.active span::after {
   width: 100%;
 }
 
-/* ===============================
-HAMBURGER / TOGGLE BAR
-================================= */
+/* Hamburger */
 .toggle-bar {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
 }
+
 .toggle-bar span {
   width: 26px;
   height: 3px;
   background: var(--dark);
   border-radius: 3px;
   transition: 0.3s ease;
-} /* ANIMATION: hamburger → X */
+}
+
+/* Hamburger → X */
 .toggle-bar.active span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
+
 .toggle-bar.active span:nth-child(2) {
   opacity: 0;
 }
+
 .toggle-bar.active span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ===============================
-   MOBILE NAV
-================================= */
 @media (max-width: 900px) {
   .toggle-bar {
     display: flex;

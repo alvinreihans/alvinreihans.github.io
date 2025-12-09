@@ -20,6 +20,7 @@ function loadContent(page) {
     })
     .then((html) => {
       document.getElementById('content').innerHTML = html;
+      if (page === 'home') initHeroContactButton();
       // opsional: jalankan fungsi inisialisasi untuk page (mis: initHome())
     })
     .catch((err) => {
@@ -36,6 +37,7 @@ Promise.all([
 ])
   .then(() => {
     initNavbar(); // <— panggil fungsi init navbar
+    initHeroContactButton(); // <— tambahkan ini
     if (typeof router === 'function') router();
   })
   .catch((err) => console.error('Component load failed', err));
@@ -80,6 +82,19 @@ function initNavbar() {
 
         // GANTI HALAMAN
         if (page) location.hash = page;
+      });
+    });
+  }
+}
+
+function initHeroContactButton() {
+  const btn = document.getElementById('hero-contact-btn');
+
+  if (btn) {
+    btn.addEventListener('click', () => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth',
       });
     });
   }
