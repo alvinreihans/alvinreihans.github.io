@@ -87,6 +87,185 @@ section {
 }
 
 /* ===============================
+  GLOBAL COMPONENTS & UTILITIES
+================================= */
+/* --- Sliding Underline Link (Gaya umum untuk link utama) --- */
+.sliding-underline {
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.sliding-underline::after {
+  content: '';
+
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  background: currentColor;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.sliding-underline:hover::after {
+  width: 100%;
+}
+
+/* --- Secondary Button Style --- */
+.btn-secondary {
+  padding: 12px 22px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--primary);
+  border: 2px solid rgba(167, 167, 167, 0.37);
+  transition: 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: var(--light);
+}
+
+/* --- Section Titles & Spacing --- */
+.tech-section,
+.projects-section {
+  padding-top: 50px;
+}
+
+.projects-section {
+  padding-top: 80px;
+}
+
+.section-title {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 35px;
+  color: var(--dark);
+}
+
+/* --- Grid Layouts (Untuk Tech dan Project) --- */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  width: 100%;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  width: 100%;
+}
+
+/* --- Tech Box Style --- */
+.tech-box {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  padding: 28px;
+  border-radius: 12px;
+  transition: 0.25s ease;
+  width: 100%;
+}
+
+.tech-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.tech-box h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.tech-box p {
+  font-size: 14px;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+/* --- Project Card Style --- */
+.project-card {
+  width: 100%;
+  padding: 30px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  transition: 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin-bottom: 15px;
+}
+
+.project-card .tags {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-card .tags span {
+  background: #292423;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.project-card .project-link {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+/* --- 404/Coming Soon Page Style (Generic Status Page) --- */
+.not-found {
+  text-align: center;
+  padding: 80px 0;
+  margin-top: 5vh;
+}
+
+.not-found p {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--dark);
+  opacity: 0.8;
+  margin-top: 15px;
+}
+
+.not-found-img {
+  display: block;
+  width: 90%;
+  max-width: 550px;
+  height: auto;
+  margin: 0 auto 30px;
+}
+
+/* ===============================
    RESPONSIVE CONTAINER
 ================================= */
 

@@ -1,23 +1,49 @@
-// // Event delegation: tunggu klik di seluruh dokumen
-// document.addEventListener('click', function (e) {
-//   // 1) Toggle bar (mobile)
-//   const toggle = e.target.closest('.toggle-bar');
-//   if (toggle) {
-//     const nav = document.querySelector('.navigation');
-//     if (nav) nav.classList.toggle('open');
-//     return; // selesai jika klik toggle
-//   }
+function initNavbar() {
+  // sticky navbar
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    if (window.scrollY > 20) navbar.classList.add('sticky');
+    else navbar.classList.remove('sticky');
+  });
 
-//   // 2) Klik menu (elemen dengan atribut data-page)
-//   const menu = e.target.closest('[data-page]');
-//   if (menu) {
-//     const page = menu.getAttribute('data-page');
-//     if (page) {
-//       // ubah hash — ini akan memicu 'hashchange' dan menjalankan router
-//       location.hash = page;
-//       // jika menu dibuka di mobile, tutup setelah klik
-//       const nav = document.querySelector('.navigation');
-//       if (nav && nav.classList.contains('open')) nav.classList.remove('open');
-//     }
-//   }
-// });
+  const toggleBar = document.querySelector('.toggle-bar');
+  const navigation = document.querySelector('.navigation');
+  const navLinks = document.querySelectorAll('.navigation li');
+
+  if (toggleBar && navigation) {
+    // toggle hamburger
+    toggleBar.addEventListener('click', () => {
+      toggleBar.classList.toggle('active'); // animasi X
+      navigation.classList.toggle('open');
+    });
+  }
+
+  if (navLinks && navLinks.length) {
+    // active menu switch & change hash
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const page = link.getAttribute('data-page');
+
+        // highlight
+        navLinks.forEach((l) => l.classList.remove('active'));
+        link.classList.add('active');
+
+        // close mobile menu
+        if (toggleBar) toggleBar.classList.remove('active');
+        if (navigation) navigation.classList.remove('open'); // Tambahkan cek untuk navigation
+
+        // GANTI HALAMAN
+        if (page) location.hash = page;
+      });
+    });
+  }
+}
+
+function setActiveNav(page) {
+  const links = document.querySelectorAll('.navigation li');
+  if (!links) return;
+  links.forEach((l) => {
+    l.classList.toggle('active', l.getAttribute('data-page') === page);
+  });
+}
